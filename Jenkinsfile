@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout GIT') {
             steps {
                 echo 'Pulling ...'
-                git branch: 'main', 
+                git branch: 'master', 
                     url: 'https://github.com/medoussemaboussida/devops-workshop.git'
             }
         }
