@@ -9,7 +9,23 @@ pipeline {
                     url: 'https://github.com/medoussemaboussida/devops-workshop.git'
             }
         }
-
+ stage('MVN CLEAN') {
+            steps {
+                sh 'mvn clean'
+            }
+        }
+        stage('MVN COMPILE') {
+            steps {
+                sh 'mvn compile'
+            }
+        }
+                stage("SonarQube Analysis") {
+            steps {
+                withSonarQubeEnv('scanner') {
+                    sh 'mvn sonar:sonar'
+                }
+            }
+        }
                
     }
 }
