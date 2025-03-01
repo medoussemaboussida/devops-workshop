@@ -41,6 +41,10 @@ pipeline {
                 }
             }
         }
-               
+                 stage('Deploy to Nexus') {
+            steps {
+                sh 'mvn deploy'
+            }
+        }      
     }
 }
